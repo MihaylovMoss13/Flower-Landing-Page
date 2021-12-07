@@ -4,7 +4,21 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@100;700&display=swap");
 
+$bg-color: #f5f0ec;
+
 body {
   font-family: "Poppins", sans-serif;
   cursor: none;
+  background-color: $bg-color;
+}
+
+.main-container {
+  padding: 0 5vw;
+}
+
+section {
+  padding: 100px 0;
+  .section-header {
+    margin-bottom: 50px;
+  }
 }
