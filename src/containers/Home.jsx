@@ -14,7 +14,7 @@ const Home = () => {
 
   useLocoScroll(!preloader);
 
-  const [timer, setTimer] = useState(3);
+  const [timer, setTimer] = useState(1);
   const id = useRef(null);
 
   const clear = () => {
