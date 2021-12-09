@@ -1,8 +1,13 @@
 .gallery-wrap {
-  background-color: #d53f14;
+  background: linear-gradient(
+    90deg,
+    rgba(213, 63, 65, 1) 0%,
+    rgba(233, 148, 148, 1) 100%
+  );
   margin-left: -5vw;
   margin-right: -5vw;
   position: relative;
+  width: fit-content;
 
   .gallery-counter {
     position: absolute;
@@ -30,7 +35,7 @@
   .gallery {
     height: 80vh;
     padding: 10vh 0;
-    width: 400%;
+    width: max-content;
     display: flex;
     flex-wrap: nowrap;
   }

@@ -6,6 +6,7 @@ import Header from "../components/Header/Header";
 import Featured from "../components/Featured/Featured";
 import About from "../components/About/About";
 import Gallery from "../components/Gallery/Gallery";
+import Footer from "../components/Footer/Footer";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
         <Featured />
         <About />
         <Gallery />
+        <Footer />
       </div>
     </>
   );
