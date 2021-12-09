@@ -3,5 +3,5 @@
 This project is bootstrapped by gatsby
 
 To run this started use
-`npm i` - to install dependencies
-`npm start` - to start local dev server
+`yarn install` - to install dependencies
+`yarn start` - to start local dev server
