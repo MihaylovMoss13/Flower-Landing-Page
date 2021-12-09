@@ -4,7 +4,7 @@ import "./style.scss";
 
 const About = () => {
   return (
-    <section className="about-section">
+    <section className="about-section" data-scoll-section>
       <SectionHeader title="about" />
       <p id="headline">
         Harry Flower create traditional and tailor-made floral arrangements for

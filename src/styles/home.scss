@@ -10,12 +10,11 @@ body {
   font-family: "Poppins", sans-serif;
   cursor: none;
   background-color: $bg-color;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .main-container {
-  padding: 5vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
 }
 
 section {
@@ -23,4 +22,38 @@ section {
   .section-header {
     margin-bottom: 50px;
   }
+}
+
+.loader-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #191919;
+  color: #dbd8d6;
+
+  h1 {
+    font-size: 1.5vw;
+    text-transform: uppercase;
+    font-family: "Bai Jamjuree", sans-serif;
+    font-weight: 600;
+  }
+
+  h2 {
+    font-size: 1vw;
+    text-transform: uppercase;
+    font-family: "Bodoni Moda", serif;
+    font-style: italic;
+    margin-top: 10px;
+  }
+}
+
+.absolute {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  z-index: 1;
 }

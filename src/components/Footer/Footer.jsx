@@ -4,7 +4,7 @@ import "./style.scss";
 
 const Footer = () => {
   return (
-    <section className="footer">
+    <section className="footer" data-scoll-section>
       <SectionHeader title="Made in" />
       <h1 className="location" id="location-text">
         Rotterdam

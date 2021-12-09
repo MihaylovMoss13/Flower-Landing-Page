@@ -3,7 +3,7 @@ import "./style.scss";
 
 const Header = () => {
   return (
-    <section className="header-container">
+    <section className="header-container" data-scoll-section>
       <ul className="header-menu">
         <li>Intro</li>
         <li>About</li>

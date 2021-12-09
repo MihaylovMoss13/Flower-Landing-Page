@@ -3,7 +3,7 @@ import "./style.scss";
 
 const Navbar = () => {
   return (
-    <div className="navbar">
+    <div className="navbar" data-scoll-section>
       <div>menu</div>
       <div>Harry Flowers</div>
       <div>cart</div>

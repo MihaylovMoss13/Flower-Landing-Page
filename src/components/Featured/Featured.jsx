@@ -5,7 +5,7 @@ import photos from "../../data";
 const Featured = () => {
   const [firstImg, secondImg] = photos;
   return (
-    <section className="featured-section">
+    <section className="featured-section" data-scoll-section>
       <div className="featured-row-layout">
         <h6>green</h6>
         <img alt="" src={firstImg} />
