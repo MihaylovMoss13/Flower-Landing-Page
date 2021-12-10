@@ -36,7 +36,7 @@ const Footer = () => {
           y: 0,
           opacity: 1,
           stagger: 0.1,
-          ease: "back",
+          ease: "power2",
         }
       );
     }

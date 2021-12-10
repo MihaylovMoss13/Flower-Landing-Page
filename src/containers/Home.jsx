@@ -9,23 +9,37 @@ import Gallery from "../components/Gallery/Gallery";
 import Footer from "../components/Footer/Footer";
 import useLocoScroll from "../hooks/useLocoScroll";
 
+import "../styles/home.scss";
+
 const Home = () => {
-  const [preloader, setPreloader] = useState(true);
+  const ref = useRef(null);
+
+  const [preloader, setPreload] = useState(true);
 
   useLocoScroll(!preloader);
 
+  useEffect(() => {
+    if (!preloader && ref) {
+      if (typeof window === "undefined" || !window.document) {
+        return;
+      }
+    }
+  }, [preloader]);
+
   const [timer, setTimer] = useState(1);
+
   const id = useRef(null);
 
   const clear = () => {
     window.clearInterval(id.current);
-    setPreloader(false);
+    setPreload(false);
   };
 
   useEffect(() => {
     id.current = window.setInterval(() => {
-      setTimer(timer => timer - 1);
+      setTimer(time => time - 1);
     }, 1000);
+    return () => clear();
   }, []);
 
   useEffect(() => {
@@ -33,6 +47,10 @@ const Home = () => {
       clear();
     }
   }, [timer]);
+
+  if (typeof window === "undefined" || !window.document) {
+    return null;
+  }
 
   return (
     <>
@@ -48,6 +66,7 @@ const Home = () => {
           className="main-container"
           id="main-container"
           data-scroll-container
+          ref={ref}
         >
           <Navbar />
           <Header />

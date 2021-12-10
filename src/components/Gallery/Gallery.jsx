@@ -58,8 +58,8 @@ function GalleryItem({
       className={cn("gallery-item-wrapper", { "is-reveal": onScreen })}
       ref={ref}
     >
-      <div />
-      <div className="gallery-item">
+      <div></div>
+      <div className={"gallery-item"}>
         <div className="gallery-item-info">
           <h1 className="gallery-info-title">{title}</h1>
           <h6 className="gallery-info-subtitle">{subtitle}</h6>
@@ -70,7 +70,7 @@ function GalleryItem({
           style={{ backgroundImage: `url(${src})` }}
         ></div>
       </div>
-      <div />
+      <div></div>
     </div>
   );
 }

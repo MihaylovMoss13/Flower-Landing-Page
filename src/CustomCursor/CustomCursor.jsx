@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./style.scss";
 // import CustomCursorContext from "./context/CustomCursorContext";
 
@@ -17,7 +17,7 @@ const CustomCursor = () => {
   });
 
   React.useEffect(() => {
-    document.addEventListener("mousemove", (event) => {
+    document.addEventListener("mousemove", event => {
       const { clientX, clientY } = event;
 
       const mouseX = clientX;
@@ -47,8 +47,8 @@ const CustomCursor = () => {
         positionRef.current.destinationX = mouseX;
         positionRef.current.destinationY = mouseY;
       } else {
-        positionRef.current.distanceX = (mouseX - destinationX) * 0.2;
-        positionRef.current.distanceY = (mouseY - destinationY) * 0.2;
+        positionRef.current.distanceX = (mouseX - destinationX) * 0.1;
+        positionRef.current.distanceY = (mouseY - destinationY) * 0.1;
         if (
           Math.abs(positionRef.current.distanceX) +
             Math.abs(positionRef.current.distanceY) <
