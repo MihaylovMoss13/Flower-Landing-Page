@@ -8,11 +8,11 @@ const Featured = () => {
     <section className="featured-section" data-scoll-section>
       <div className="featured-row-layout">
         <h6>green</h6>
-        <img alt="" src={firstImg} />
+        <img alt="" src={firstImg} data-scroll />
       </div>
       <div className="featured-column-layout">
         <h6>lily</h6>
-        <img alt="" src={secondImg} />
+        <img alt="" src={secondImg} data-scroll />
       </div>
     </section>
   );

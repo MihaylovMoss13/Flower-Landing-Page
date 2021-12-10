@@ -23,7 +23,7 @@ const Header = () => {
       stagger: 0.1,
       ease: "power2",
     });
-  });
+  }, []);
 
   return (
     <section className="header-container" data-scoll-section>
