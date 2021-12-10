@@ -10,7 +10,7 @@ import "./style.scss";
 const Footer = () => {
   const ref = useRef(null);
   const [reveal, setReveal] = useState(false);
-  const onScreen = useOnScreen(ref);
+  const onScreen = useOnScreen(ref, 0.5);
 
   useEffect(() => {
     if (onScreen) setReveal(onScreen);
@@ -18,7 +18,7 @@ const Footer = () => {
 
   useEffect(() => {
     if (reveal) {
-      const split = new SplitText("#header-text", {
+      const split = new SplitText("#location-text", {
         type: "lines",
         linesClass: "lineChildren",
       });
