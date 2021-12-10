@@ -75,7 +75,7 @@ function GalleryItem({
   );
 }
 
-const Gallery = () => {
+const Gallery = ({ src }) => {
   const [activeImage, setActiveImage] = useState(1);
   const ref = useRef(null);
 
@@ -88,10 +88,10 @@ const Gallery = () => {
         scrollTrigger: {
           start: "top top",
           trigger: ref.current,
-          scroll: "#main-container",
+          scroller: "#main-container",
           pin: true,
           scrub: 0.5,
-          span: 1 / (sections.length - 1),
+          snap: 1 / (sections.length - 1),
           end: () => `+=${ref.current.offsetWidth}`,
         },
       });
@@ -104,7 +104,7 @@ const Gallery = () => {
   };
 
   return (
-    <section className="section-wrapper gallery-wrap">
+    <section data-scroll-section className="section-wrapper gallery-wrap">
       <div className="gallery" ref={ref}>
         <div className="gallery-counter">
           <span>{activeImage}</span>
@@ -113,7 +113,7 @@ const Gallery = () => {
         </div>
         {images.map((image, index) => (
           <GalleryItem
-            key={image.src}
+            key={src}
             index={index}
             {...image}
             updateActiveImage={handleUpdateActiveImage}
