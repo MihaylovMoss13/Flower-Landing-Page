@@ -1,5 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import cn from "classnames";
+
 import "./style.scss";
+import useOnScreen from "../../hooks/useOnScreen";
 
 const images = [
   {
@@ -40,8 +45,19 @@ function GalleryItem({
   updateActiveImage,
   index,
 }) {
+  const ref = useRef(null);
+  const onScreen = useOnScreen(ref, 0.5);
+  useEffect(() => {
+    if (onScreen) {
+      updateActiveImage(index);
+    }
+  }, [onScreen, index]);
+
   return (
-    <div className="gallery-item-wrapper" data-scoll-section>
+    <div
+      className={cn("gallery-item-wrapper", { "is-reveal": onScreen })}
+      ref={ref}
+    >
       <div />
       <div className="gallery-item">
         <div className="gallery-item-info">
@@ -61,10 +77,35 @@ function GalleryItem({
 
 const Gallery = () => {
   const [activeImage, setActiveImage] = useState(1);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      let sections = gsap.utils.toArray(".gallery-item-wrapper");
+      gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+          start: "top top",
+          trigger: ref.current,
+          scroll: "#main-container",
+          pin: true,
+          scrub: 0.5,
+          span: 1 / (sections.length - 1),
+          end: () => `+=${ref.current.offsetWidth}`,
+        },
+      });
+      ScrollTrigger.refresh();
+    });
+  }, []);
+
+  const handleUpdateActiveImage = index => {
+    setActiveImage(index + 1);
+  };
 
   return (
     <section className="section-wrapper gallery-wrap">
-      <div className="gallery">
+      <div className="gallery" ref={ref}>
         <div className="gallery-counter">
           <span>{activeImage}</span>
           <span className="divider" />
@@ -75,7 +116,7 @@ const Gallery = () => {
             key={image.src}
             index={index}
             {...image}
-            updateActiveImage={index => setActiveImage(index + 1)}
+            updateActiveImage={handleUpdateActiveImage}
           />
         ))}
       </div>
